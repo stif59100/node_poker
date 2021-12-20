@@ -1,1 +1,0 @@
-INSERT INTO `droits_utilisateurs`( `id_droit`, `id_utilisateur`) VALUES ((SELECT id_droit FROM droit WHERE nom_droit = 'cloture_manche'),(SELECT id_utilisateur FROM utilisateur WHERE pseudo_utilisateur = 'biloute'));

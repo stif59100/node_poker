@@ -58,17 +58,3 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
-
-INSERT INTO `manche_joueur`(`id_manche`, `id_joueur`, `points`) 
-VALUES 
-(
-    (select id_manche FROM manche where nom_manche = 'test'),
-    (select id_utilisateur FROM utilisateur where pseudo_utilisateur = 'biloute'),
- 0)
-INSERT INTO `manche_joueur`(`id_manche`, `id_joueur`, `points`) 
-VALUES 
-(
-    (select id_manche FROM manche where nom_manche = 'test'),
-    (select id_utilisateur FROM utilisateur where pseudo_utilisateur = 'stif'),
- 0)
