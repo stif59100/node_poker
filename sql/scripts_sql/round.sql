@@ -24,14 +24,16 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `manche_joueur`
+-- Structure de la table `round`
 --
 
-CREATE TABLE `manche_joueur` (
-  `id_manche` int(11) UNSIGNED NOT NULL,
-  `id_joueur` int(11) UNSIGNED NOT NULL,
-  `points` int(11) UNSIGNED NOT NULL,
-  `id_manche_joueur` int(11) UNSIGNED NOT NULL
+CREATE TABLE `round` (
+  `id_round` int(11) UNSIGNED NOT NULL,
+  `date_round` date NOT NULL,
+  `name_round` varchar(100) NOT NULL,
+  `points_attributs` int(11) UNSIGNED NOT NULL,
+  `close` tinyint(1) NOT NULL DEFAULT 0,
+  `open` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -39,20 +41,20 @@ CREATE TABLE `manche_joueur` (
 --
 
 --
--- Index pour la table `manche_joueur`
+-- Index pour la table `round`
 --
-ALTER TABLE `manche_joueur`
-  ADD PRIMARY KEY (`id_manche_joueur`);
+ALTER TABLE `round`
+  ADD PRIMARY KEY (`id_round`);
 
 --
 -- AUTO_INCREMENT pour les tables déchargées
 --
 
 --
--- AUTO_INCREMENT pour la table `manche_joueur`
+-- AUTO_INCREMENT pour la table `round`
 --
-ALTER TABLE `manche_joueur`
-  MODIFY `id_manche_joueur` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+ALTER TABLE `round`
+  MODIFY `id_round` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

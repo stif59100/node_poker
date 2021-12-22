@@ -1,0 +1,1 @@
+CREATE TABLE `poker`.`level_round` ( `id_level_round` INT UNSIGNED NOT NULL AUTO_INCREMENT , `id_round` INT UNSIGNED NOT NULL , `id_level` INT UNSIGNED NOT NULL , PRIMARY KEY (`id_level_round`)) ENGINE = InnoDB; 

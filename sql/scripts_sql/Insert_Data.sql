@@ -1,9 +1,9 @@
-INSERT INTO `utilisateur`(
- `nom_utilisateur`,
- `prenom_utilisateur`,
- `pseudo_utilisateur`,
- `email_utilisateur`,
- `mot_de_passe_utilisateur`)
+INSERT INTO `user`(
+ `name_user`,
+ `firstname_user`,
+ `pseudo_user`,
+ `email_user`,
+ `password_user`)
  VALUES (
  'delhoute',
  'sandy',
@@ -11,33 +11,33 @@ INSERT INTO `utilisateur`(
  'sdelhoute@gmail.com',
  sha1('biloute'));
  
--- manche
-INSERT INTO `manche`( 
-`date_manche`, 
-`nom_manche`, 
+-- round
+INSERT INTO `round`( 
+`date_round`, 
+`name_round`, 
 `points_attributs`,
  `cloture`, 
  `ouverture`) 
 VALUES (NOW(),'test',2,1,0);
 
--- Droit
-INSERT INTO `droit`(`nom_droit`) VALUES ('ajout_manche');
-INSERT INTO `droit`(`nom_droit`) VALUES ('suppr_manche');
-INSERT INTO `droit`(`nom_droit`) VALUES ('maj_manche');
-INSERT INTO `droit`(`nom_droit`) VALUES ('inscription_manche');
-INSERT INTO `droit`(`nom_droit`) VALUES ('desincription_manche');
-INSERT INTO `droit`(`nom_droit`) VALUES ('ouverture_manche');
-INSERT INTO `droit`(`nom_droit`) VALUES ('cloture_manche');
--- manche joueur
-INSERT INTO `manche_joueur`(`id_manche`, `id_joueur`, `points`) 
+-- right
+INSERT INTO `right` (`name_right`) VALUES
+('add_round'),
+('delete_round'),
+('update_round'),
+('register_round'),
+('unregister_round'),
+('open_round'),
+('close_round');
+INSERT INTO `round_player`(`id_round`, `id_player`, `points`) 
 VALUES 
 (
-    (select id_manche FROM manche where nom_manche = 'test'),
-    (select id_utilisateur FROM utilisateur where pseudo_utilisateur = 'biloute'),
+    (select id_round FROM round where name_round = 'test'),
+    (select id_user FROM user where pseudo_user = 'biloute'),
  0);
 
- -- droit_utilisateurs
-INSERT INTO `droits_utilisateurs`( `id_droit`, `id_utilisateur`) VALUES 
-((SELECT id_droit FROM droit WHERE nom_droit = 'cloture_manche'),
-(SELECT id_utilisateur FROM utilisateur WHERE pseudo_utilisateur = 'biloute'));
+ -- right_users
+INSERT INTO `rights_users`( `id_right`, `id_user`) VALUES 
+((SELECT id_right FROM right WHERE name_right = 'cloture_round'),
+(SELECT id_user FROM user WHERE pseudo_user = 'biloute'));
  

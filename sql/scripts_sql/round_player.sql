@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 02 déc. 2021 à 14:06
+-- Généré le : jeu. 02 déc. 2021 à 14:08
 -- Version du serveur : 10.4.21-MariaDB
 -- Version de PHP : 8.0.11
 
@@ -24,46 +24,35 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `droit`
+-- Structure de la table `round_player`
 --
 
-CREATE TABLE `droit` (
-  `id_droit` int(11) UNSIGNED NOT NULL,
-  `nom_droit` varchar(100) NOT NULL
+CREATE TABLE `round_player` (
+  `id_round` int(11) UNSIGNED NOT NULL,
+  `id_player` int(11) UNSIGNED NOT NULL,
+  `points` int(11) UNSIGNED NOT NULL,
+  `id_round_player` int(11) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Déchargement des données de la table `droit`
---
-
-INSERT INTO `droit` (`id_droit`, `nom_droit`) VALUES
-(1, 'ajout_manche'),
-(2, 'suppr_manche'),
-(3, 'maj_manche'),
-(4, 'inscription_manche'),
-(5, 'desincription_manche'),
-(6, 'ouverture_manche'),
-(7, 'cloture_manche');
 
 --
 -- Index pour les tables déchargées
 --
 
 --
--- Index pour la table `droit`
+-- Index pour la table `round_player`
 --
-ALTER TABLE `droit`
-  ADD PRIMARY KEY (`id_droit`);
+ALTER TABLE `round_player`
+  ADD PRIMARY KEY (`id_round_player`);
 
 --
 -- AUTO_INCREMENT pour les tables déchargées
 --
 
 --
--- AUTO_INCREMENT pour la table `droit`
+-- AUTO_INCREMENT pour la table `round_player`
 --
-ALTER TABLE `droit`
-  MODIFY `id_droit` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+ALTER TABLE `round_player`
+  MODIFY `id_round_player` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

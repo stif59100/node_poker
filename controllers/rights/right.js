@@ -1,8 +1,8 @@
 const connexion = require("../../connexion")
 
 
-// recherche de tous les droits
-// http://localhost:8080/droit
+// recherche de tous les rightss
+// http://localhost:8080/rights
 const getRights = (req, res) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
@@ -11,7 +11,7 @@ const getRights = (req, res) => {
   );
 
   // Exécute une requête SQL de type SELECT
-  connexion.query("SELECT * FROM droit ", (err, rows, fields) => {
+  connexion.query("SELECT * FROM rights ", (err, rows, fields) => {
     // SI OK
     if (!err) {
       console.log(rows);
@@ -26,8 +26,8 @@ const getRights = (req, res) => {
 
 };
 
-// recherche par droit
-// http://localhost:8080/droits/:nom_droit
+// recherche par rights
+// http://localhost:8080/rights/:name_rights
 const getRightsByName = (req, res) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
@@ -36,7 +36,7 @@ const getRightsByName = (req, res) => {
   );
   const param = req.params.name
   // Exécute une requête SQL de type SELECT
-  connexion.query("SELECT * FROM droit WHERE nom_droit = ?", param, (err, rows, fields) => {
+  connexion.query("SELECT * FROM rights WHERE name_rights = ?", param, (err, rows, fields) => {
     // SI OK
     if (!err) {
       console.log(rows);

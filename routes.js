@@ -17,7 +17,7 @@ const routes = (app) => {
     router.get("/roundByUserId/:id", controllerRound.getRoundByUserId);
 
     router.get("/authentication", controllerAuthentication.getAuthentication);
-    router.get("/register", controllerRegister.setRegister)
+    router.post("/register", controllerRegister.setRegister)
 
     router.get("/rights", controllerRights.getRights);
     router.get("/right/:name", controllerRights.getRightsByName);

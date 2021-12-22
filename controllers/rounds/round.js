@@ -8,7 +8,7 @@ const getRoundByRoundId = async (req, res) => {
   );
   const param = req.params.id
   // Exécute une requête SQL de type SELECT
-  connexion.query("SELECT * FROM manche_joueur where user_id = ?", (err, rows, fields) => {
+  connexion.query("SELECT * FROM round_player where id_user = ?", (err, rows, fields) => {
     // SI OK
     if (!err) {
       console.log(rows);
@@ -30,7 +30,7 @@ const getRoundByUserId = async (req, res) => {
   );
 
   // Exécute une requête SQL de type SELECT
-  connexion.query("SELECT * FROM manche_joueur ", (err, rows, fields) => {
+  connexion.query("SELECT * FROM round_player ", (err, rows, fields) => {
     // SI OK
     if (!err) {
       console.log(rows);

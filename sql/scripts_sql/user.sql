@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 02 déc. 2021 à 14:08
+-- Généré le : jeu. 02 déc. 2021 à 14:09
 -- Version du serveur : 10.4.21-MariaDB
 -- Version de PHP : 8.0.11
 
@@ -24,16 +24,16 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `manche`
+-- Structure de la table `user`
 --
 
-CREATE TABLE `manche` (
-  `id_manche` int(11) UNSIGNED NOT NULL,
-  `date_manche` date NOT NULL,
-  `nom_manche` varchar(100) NOT NULL,
-  `points_attributs` int(11) UNSIGNED NOT NULL,
-  `cloture` tinyint(1) NOT NULL DEFAULT 0,
-  `ouverture` tinyint(1) NOT NULL DEFAULT 0
+CREATE TABLE `user` (
+  `id_user` int(11) UNSIGNED NOT NULL,
+  `name_user` varchar(100) NOT NULL,
+  `firstname_user` varchar(100) NOT NULL,
+  `pseudo_user` varchar(100) NOT NULL,
+  `email_user` varchar(100) NOT NULL,
+  `password_user` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -41,21 +41,29 @@ CREATE TABLE `manche` (
 --
 
 --
--- Index pour la table `manche`
+-- Index pour la table `user`
 --
-ALTER TABLE `manche`
-  ADD PRIMARY KEY (`id_manche`);
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id_user`);
 
 --
 -- AUTO_INCREMENT pour les tables déchargées
 --
 
 --
--- AUTO_INCREMENT pour la table `manche`
+-- AUTO_INCREMENT pour la table `user`
 --
-ALTER TABLE `manche`
-  MODIFY `id_manche` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
-COMMIT;
+ALTER TABLE `user`
+  MODIFY `id_user` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- Contraintes pour les tables déchargées
+--
+
+--
+-- Contraintes pour la table `user`
+--
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
