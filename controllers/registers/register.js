@@ -3,12 +3,11 @@ const connexion = require("../../connexion")
 
 // http://localhost:8080/register
 const setRegister = async (req, res) => {
-    // res.setHeader("Access-Control-Allow-Origin", "*");
-    // res.setHeader(
-    //   "Access-Control-Allow-Methods",
-    //   "POST"
-    // );
-    console.log("je suis dans l'enregistrement")
+      res.setHeader("Access-Control-Allow-Origin", "*");
+      res.setHeader(
+        "Access-Control-Allow-Methods",
+        "POST"
+      );
       const params = [req.body.name_user, req.body.firstname_user, req.body.pseudo_user, req.body.email_user, req.body.password_user]
 
       console.log(req.body)
