@@ -23,7 +23,6 @@ const getRights = (req, res) => {
       res.status(200).json("\nErreur d'exécution de la requête !" + err);
     }
   });
-
 };
 
 // recherche par rights
@@ -50,6 +49,7 @@ const getRightsByName = (req, res) => {
   });
 
 };
+
 
 module.exports = {
   getRightsByName,
