@@ -7,13 +7,17 @@ const getAuthentication = async (req, res) => {
         "Access-Control-Allow-Methods",
         "GET"
     );
-    var email = req.body.email
+    var email = req.body.emailOrLogin
+    var login = req.body.emailOrLogin
     var password = req.body.password
     var params = []
     params.push(email)
+    params.push(login)
     params.push(password)
+    console.log(params)
     // Exécute une requête SQL de type SELECT
-    connexion.query("SELECT * FROM user where email_user = ? and password_user = ? LIMIT 1 ",params,(err, rows, fields) => {
+    connexion.query("SELECT * FROM user where (email_user = ? or pseudo_user = ?) and password_user = ? LIMIT 1 ",params,(err, rows, fields) => {
+        console.log(rows)
         // SI OK
         if (!err) {
             console.log(fields);
