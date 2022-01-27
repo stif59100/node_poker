@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const controllerUsers = require("./controllers/users/users");
-const controllerRound = require("./controllers/rounds_players/round_players");
+const controllerRoundPlayer = require("./controllers/rounds_players/round_players");
 const controllerRights = require('./controllers/rights/right');
 const controllerRegister = require("./controllers/registers/register");
 const controllerAuthentication = require('./controllers/authentications/authentification')
@@ -15,8 +15,8 @@ const routes = (app) => {
     router.get("/users", controllerUsers.getUsers);
     router.get("/user/:id", controllerUsers.getUserById);
 
-    router.get("/roundByRoundId/:id", controllerRound.getRoundByRoundId);
-    router.get("/roundByUserId/:id", controllerRound.getRoundByUserId);
+    router.get("/roundByRoundId/:id", controllerRoundPlayer.getRoundByRoundId);
+    router.get("/roundByUserId/:id", controllerRoundPlayer.getRoundByUserId);
 
     router.post("/authentication", controllerAuthentication.getAuthentication);
     router.post("/register", controllerRegister.setRegister);
@@ -27,6 +27,7 @@ const routes = (app) => {
     
     router.get("/rounds",controllerRounds.getRounds);
     router.post("/round/add",controllerRounds.setRound);
+    router.post("/roundplayer/register", controllerRoundPlayer.registerRound);
     app.use(router);
 };
 
