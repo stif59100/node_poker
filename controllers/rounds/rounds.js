@@ -54,20 +54,30 @@ const setRound = async (req, res) => {
     );
     var date = req.body.date
     var name = req.body.name
-    var points= 0
+    var points_attributs = req.body.points_attributs
     var close= false
     var open= req.body.open
+    var maxPlayer=  req.body.maxPlayer
+    var buyIn= req.body.buyIn
+    var rake= req.body.rake
+    var stack = req.body.stack
+    var addon =  req.body.addon
     var params = []
     params.push(date)
     params.push(name)
-    params.push(points)
+    params.push(points_attributs)
     params.push(close)    
     params.push(open)
+    params.push(maxPlayer)
+    params.push(buyIn)
+    params.push(rake)
+    params.push(stack)
+    params.push(addon)
     console.log(params)
     
     // Exécute une requête SQL de type SELECT
     connexion.query(
-        "INSERT INTO `round`(`date_round`, `name_round`, `points_attributs`, `close`, `open`) VALUES (?,?,?,?,?)",params,
+        "INSERT INTO `round`(`date_round`, `name_round`, `points_attributs`, `close`, `open`, `max_player`,`buy_in`,`rake`,`stack`,`addon`) VALUES (?,?,?,?,?,?,?,?,?,?)",params,
         (err, rows, fields) => {
       // SI OK
       if (!err) {
