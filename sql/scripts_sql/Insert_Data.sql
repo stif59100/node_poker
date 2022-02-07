@@ -21,7 +21,7 @@ INSERT INTO `round`(
 VALUES (NOW(),'test',2,1,0);
 
 -- right
-INSERT INTO `right` (`name_right`) VALUES
+INSERT INTO `rights` (`name_right`) VALUES
 ('add_round'),
 ('delete_round'),
 ('update_round'),
@@ -37,7 +37,18 @@ VALUES
  0);
 
  -- right_users
+ INSERT INTO `rights_users`( `id_right`, `id_user`) VALUES 
+((SELECT id_right FROM rights WHERE name_right = 'add_round'),
+(SELECT id_user FROM user WHERE pseudo_user = 'sandy'));
 INSERT INTO `rights_users`( `id_right`, `id_user`) VALUES 
-((SELECT id_right FROM right WHERE name_right = 'cloture_round'),
-(SELECT id_user FROM user WHERE pseudo_user = 'biloute'));
- 
+((SELECT id_right FROM rights WHERE name_right = 'update_round'),
+(SELECT id_user FROM user WHERE pseudo_user = 'sandy'));
+INSERT INTO `rights_users`( `id_right`, `id_user`) VALUES 
+((SELECT id_right FROM rights WHERE name_right = 'register_round'),
+(SELECT id_user FROM user WHERE pseudo_user = 'sandy'));
+INSERT INTO `rights_users`( `id_right`, `id_user`) VALUES 
+((SELECT id_right FROM rights WHERE name_right = 'open_round'),
+(SELECT id_user FROM user WHERE pseudo_user = 'sandy'));
+INSERT INTO `rights_users`( `id_right`, `id_user`) VALUES 
+((SELECT id_right FROM rights WHERE name_right = 'close_round'),
+(SELECT id_user FROM user WHERE pseudo_user = 'sandy'));

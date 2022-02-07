@@ -30,7 +30,7 @@ const getRoundByUserId = async (req, res) => {
   );
 
   // Exécute une requête SQL de type SELECT
-  connexion.query("SELECT * FROM round_player ", (err, rows, fields) => {
+  connexion.query("SELECT id_round FROM round_player ", (err, rows, fields) => {
     // SI OK
     if (!err) {
       console.log(rows);
@@ -49,9 +49,10 @@ const registerRound = async (req, res) => {
     "Access-Control-Allow-Methods",
     "POST"
   );
-const param =[req.params.id_round,req.params.id_user]
+  const param =[req.body.id_round,req.body.id_user]
+ 
   // Exécute une requête SQL de type SELECT
-  connexion.query("INSERT INTO round_player(id_round, id_user, `points`) VALUES (?,?,0);", params,(err, rows, fields) => {
+  connexion.query("INSERT INTO round_player(id_round, id_player, `points`) VALUES (?,?,0);",param,(err, rows, fields) => {
     // SI OK
     if (!err) {
       console.log(rows);
@@ -59,7 +60,7 @@ const param =[req.params.id_round,req.params.id_user]
     }
     // Si KO
     else {
-      console.log("\nErreur d'exécution de la requête !" + err);
+      //console.log("\nErreur d'exécution de la requête !" + err);
       res.status(200).json("\nErreur d'exécution de la requête !" + err);
     }
   });

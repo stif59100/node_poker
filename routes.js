@@ -23,7 +23,7 @@ const routes = (app) => {
 
     router.get("/rights", controllerRights.getRights);
     router.get("/right/:name", controllerRights.getRightsByName);
-    router.post("/rightsByUsers/:id",controllerRightsUsers.getRightsByUsers);
+    router.post("/rightsByUsers",controllerRightsUsers.getRightsByUsers);
     
     router.get("/rounds",controllerRounds.getRounds);
     router.post("/round/add",controllerRounds.setRound);
