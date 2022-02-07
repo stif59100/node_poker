@@ -1,3 +1,5 @@
+// connexion.js
+// chargement du pilote mysql
 const mysql = require('mysql');
 
 // Connexion à la BD

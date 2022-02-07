@@ -1,4 +1,5 @@
-const connexion = require("../../connexion")
+const connexion = require("../../connexion");
+const User = require("../../dto/User");
 
 // recherche de tous les utilisateurs
 // http://localhost:8080/users
@@ -13,8 +14,20 @@ const getUsers = async (req, res) => {
   connexion.query("SELECT * FROM utilisateur ", (err, rows, fields) => {
     // SI OK
     if (!err) {
+      let users = []
+      rows.forEach(element => {
+        let user = new User()
+        user.setIdUser(element.id_user)
+        user.setNameUser(element.name_user)
+        user.setFirstNameUser(element.firstame_user)
+        user.setEmailUser(element.email_user)
+        user.setPseudoUser(element.pseudo_user)
+        user.setPassword(element.password_user)
+        users.push(user)
+
+      });
       console.log(rows);
-      res.status(200).json(rows);
+      res.status(200).json(users);
     }
     // Si KO
     else {

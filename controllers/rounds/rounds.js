@@ -1,3 +1,5 @@
+const { parseXML } = require("jquery");
+
 connexion = require("../../connexion")
 
 const getRounds = async (req, res) => {
@@ -8,7 +10,7 @@ const getRounds = async (req, res) => {
   );
   const param = req.params.id
   // Exécute une requête SQL de type SELECT
-  connexion.query("SELECT * FROM round ", (err, rows, fields) => {
+  connexion.query("SELECT * FROM round", (err, rows, fields) => {
     // SI OK
     if (!err) {
       console.log(rows);
@@ -53,6 +55,7 @@ const setRound = async (req, res) => {
       "POST"
     );
     var date = req.body.date
+    var hour = req.body.hour
     var name = req.body.name
     var points_attributs = req.body.points_attributs
     var close= false
@@ -62,8 +65,11 @@ const setRound = async (req, res) => {
     var rake= req.body.rake
     var stack = req.body.stack
     var addon =  req.body.addon
+    var rebuy = req.body.rebuy
+    var bounty = req.body.bounty
     var params = []
     params.push(date)
+    params.push(hour)
     params.push(name)
     params.push(points_attributs)
     params.push(close)    
@@ -73,11 +79,13 @@ const setRound = async (req, res) => {
     params.push(rake)
     params.push(stack)
     params.push(addon)
+    params.push(rebuy)
+    params.push(bounty)
     console.log(params)
     
     // Exécute une requête SQL de type SELECT
     connexion.query(
-        "INSERT INTO `round`(`date_round`, `name_round`, `points_attributs`, `close`, `open`, `max_player`,`buy_in`,`rake`,`stack`,`addon`) VALUES (?,?,?,?,?,?,?,?,?,?)",params,
+        "INSERT INTO `round`(`date_round`,`hour_round`, `name_round`, `points_attributs`, `close`, `open`, `max_player`,`buy_in`,`rake`,`stack`,`addon`,`rebuy`,`bounty`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)",params,
         (err, rows, fields) => {
       // SI OK
       if (!err) {
