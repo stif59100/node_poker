@@ -8,7 +8,7 @@ const getRightsByUsers = (req, res) => {
       "POST"
     );
     const param = [req.body.id_user];
-    
+    console.log(req)
     // Exécute une requête SQL de type SELECT
     connexion.query("SELECT R.id_right,R.name_right FROM rights_users as RU inner join rights as R on RU.id_right = R.id_right WHERE RU.id_user  = ?", param, (err, rows, fields) => {
       // SI OK

@@ -15,8 +15,8 @@ const routes = (app) => {
     router.get("/users", controllerUsers.getUsers);
     router.get("/user/:id", controllerUsers.getUserById);
 
-    router.get("/roundByRoundId/:id", controllerRoundPlayer.getRoundByRoundId);
-    router.get("/roundByUserId/:id", controllerRoundPlayer.getRoundByUserId);
+    router.get("/roundByRoundId/:id_round", controllerRoundPlayer.getRoundByRoundId);
+    router.get("/roundByUserId/:id_user", controllerRoundPlayer.getRoundByUserId);
 
     router.post("/authentication", controllerAuthentication.getAuthentication);
     router.post("/register", controllerRegister.setRegister);
