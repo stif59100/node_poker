@@ -22,19 +22,8 @@ const getAuthentication = async (req, res) => {
         console.log('authent')
         // SI OK
         if (!err) {
-            let user = new User()
-            rows.forEach(element => {
-                
-                user.setIdUser(element.id_user)
-                user.setNameUser(element.name_user)
-                user.setFirstNameUser(element.firstame_user)
-                user.setEmailUser(element.email_user)
-                user.setPseudoUser(element.pseudo_user)
-                user.setPassword(element.password_user)
-                console.log(user);
-               
-
-            });
+            let user = new User(rows[0].id_user, rows[0].name_user,rows[0].firstame_user, rows[0].email_user, rows[0].pseudo_user, rows[0].password_user )
+            
             console.log(user);
             res.status(200).json(user);
            

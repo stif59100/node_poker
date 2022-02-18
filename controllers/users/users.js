@@ -1,6 +1,14 @@
 const connexion = require("../../connexion");
 const User = require("../../dto/User");
 
+
+
+class test{
+
+  insert = ()=>{}
+}
+
+
 // recherche de tous les utilisateurs
 // http://localhost:8080/users
 const getUsers = async (req, res) => {

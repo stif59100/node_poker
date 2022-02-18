@@ -8,7 +8,7 @@ const getRoundByRoundId = async (req, res) => {
   );
   const param = req.params.id_round
   // Exécute une requête SQL de type SELECT
-  connexion.query("SELECT id_user FROM round_player where id_round = ?", (err, rows, fields) => {
+  connexion.query("SELECT user.name_user,user.firstname_user,user.pseudo_user, round_player.id_user,round.name_round,round.date_round,round.hour_round,round_player.id_round FROM (poker.round_player round_player INNER JOIN poker.round round ON (round_player.id_round = round.id_round)) INNER JOIN poker.user user ON (round_player.id_user = user.id_user) where round_player.id_round = ?", param,(err, rows, fields) => {
     // SI OK
     if (!err) {
       console.log(rows);
@@ -37,6 +37,7 @@ const getRoundByUserId = async (req, res) => {
     if (!err) {
       console.log(rows);
       res.status(200).json(rows);
+      
     }
     // Si KO
     else {
@@ -59,6 +60,7 @@ const registerRound = async (req, res) => {
     if (!err) {
       console.log(rows);
       res.status(200).json(rows);
+      
     }
     // Si KO
     else {
@@ -81,6 +83,7 @@ const unRegisterRound = async (req, res) => {
     if (!err) {
       console.log(rows);
       res.status(200).json(rows);
+      
     }
     // Si KO
     else {

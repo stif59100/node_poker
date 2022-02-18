@@ -1,5 +1,6 @@
 
 const connexion = require("../../connexion")
+const User = require("../../dto/User")
 
 // http://localhost:8080/register
 const setRegister = async (req, res) => {
