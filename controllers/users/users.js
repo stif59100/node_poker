@@ -73,9 +73,35 @@ const getUserById = async (req, res) => {
 
 };
 
+//updateUser
+// http://localhost:8080/UpdateUser
+const UpdateUserById = async (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET"
+  );
+  //const param = 'id'
+  console.log(req.query)
+  const param = [req.query.name_user, req.query.firstname_user, req.query.pseudo_user, req.query.email_user,  req.query.id_user]
+  // Exécute une requête SQL de type SELECT
+  connexion.query("CALL updateUser(?, ?, ?, ?, ?)", param, (err, rows, fields) => {
+    // SI OK
+    if (!err) {
+      console.log(rows);
+      res.status(200).json(rows);
+    }
+    // Si KO
+    else {
+      console.log("\nErreur d'exécution de la requête !" + err);
+      res.status(200).json("\nErreur d'exécution de la requête !" + err);
+    }
+  });
 
+};
 
 module.exports = {
   getUserById,
-  getUsers
+  getUsers,
+  UpdateUserById
 };
