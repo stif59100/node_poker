@@ -30,6 +30,7 @@ const routes = (app) => {
     
     router.get("/rounds",controllerRounds.getRounds);
     router.post("/round/add",controllerRounds.setRound);
+    router.delete("/round/deleteRound", controllerRounds.deleteRound);
     router.post("/roundplayer/register", controllerRoundPlayer.registerRound);
     router.delete("/roundplayer/unRegister", controllerRoundPlayer.unRegisterRound);
     app.use(router);

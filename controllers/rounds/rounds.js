@@ -100,7 +100,32 @@ const setRound = async (req, res) => {
     });
   };
 
+  const deleteRound = async (req, res) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader(
+      "Access-Control-Allow-Methods",
+      "DELETE"
+    );
+    const param = [req.body.id_round, req.body.id_user]
+  
+    // Exécute une requête SQL de type SELECT
+    connexion.query("DELETE FROM round where id_round =? ", param, (err, rows, fields) => {
+      // SI OK
+      if (!err) {
+        console.log(rows);
+        res.status(200).json(rows);
+        
+      }
+      // Si KO
+      else {
+        //console.log("\nErreur d'exécution de la requête !" + err);
+        res.status(200).json("\nErreur d'exécution de la requête !" + err);
+      }
+    });
+  };
+
 module.exports = {
   setRound,
-  getRounds
+  getRounds,
+  deleteRound
 };

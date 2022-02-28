@@ -28,7 +28,9 @@ INSERT INTO `rights` (`name_right`) VALUES
 ('register_round'),
 ('unregister_round'),
 ('open_round'),
-('close_round');
+('close_round'),
+('manage_round'),
+('launch_round');
 INSERT INTO `round_player`(`id_round`, `id_player`, `points`) 
 VALUES 
 (
@@ -52,3 +54,8 @@ INSERT INTO `rights_users`( `id_right`, `id_user`) VALUES
 INSERT INTO `rights_users`( `id_right`, `id_user`) VALUES 
 ((SELECT id_right FROM rights WHERE name_right = 'close_round'),
 (SELECT id_user FROM user WHERE pseudo_user = 'sandy'));
+
+[22:26] sandy delhoute
+INSERT INTO `rights`(`name_right`) VALUES ('manage_round');
+INSERT INTO `rights`(`name_right`) VALUES ('launch_round');
+
