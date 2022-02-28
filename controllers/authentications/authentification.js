@@ -1,4 +1,3 @@
-const { param } = require("jquery");
 const connexion = require("../../connexion")
 const User = require("../../dto/User");
 //dao pour l'authentification
@@ -21,7 +20,9 @@ const getAuthentication = async (req, res) => {
         
         console.log('authent')
         // SI OK
-        if (!err) {
+        if (!err && rows.length !== 0) {
+            console.log(rows)
+            
             let user = new User(rows[0].id_user, rows[0].name_user,rows[0].firstame_user, rows[0].email_user, rows[0].pseudo_user, rows[0].password_user )
             
             console.log(user);
