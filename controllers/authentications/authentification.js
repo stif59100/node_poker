@@ -21,9 +21,15 @@ const getAuthentication = async (req, res) => {
         console.log('authent')
         // SI OK
         if (!err && rows.length !== 0) {
-            console.log(rows)
+            console.log(rows[0])
             
-            let user = new User(rows[0].id_user, rows[0].name_user,rows[0].firstame_user, rows[0].email_user, rows[0].pseudo_user, rows[0].password_user )
+            let user = new User(
+                rows[0].id_user,
+                rows[0].name_user,
+                rows[0].firstname_user,
+                rows[0].email_user,
+                rows[0].pseudo_user,
+                rows[0].password_user )
             
             console.log(user);
             res.status(200).json(user);

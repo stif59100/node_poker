@@ -106,10 +106,10 @@ const setRound = async (req, res) => {
       "Access-Control-Allow-Methods",
       "DELETE"
     );
-    const param = [req.body.id_round, req.body.id_user]
-  
+    const param = req.body.join(',')
+      console.log(param)
     // Exécute une requête SQL de type SELECT
-    connexion.query("DELETE FROM round where id_round =? ", param, (err, rows, fields) => {
+    connexion.query("DELETE FROM round where id_round in (?)", param, (err, rows, fields) => {
       // SI OK
       if (!err) {
         console.log(rows);

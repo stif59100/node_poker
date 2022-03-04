@@ -29,8 +29,7 @@ const getRoundByUserId = async (req, res) => {
     "GET"
   );
   const param = req.params.id_user
-  console.log("my params is ")
-  console.log(param)
+  
   // Exécute une requête SQL de type SELECT
   connexion.query("SELECT id_round FROM round_player where id_user = ? ", param, (err, rows, fields) => {
     // SI OK
