@@ -4,13 +4,20 @@
 
 
 class User {
-        id_user = ''
-        name_user = ''
-        firstname_user = ''
-        email_user = ''
-        pseudo_user = ''
-        password_user = ''
-    constructor(id_user, name_user,firstname_user, email_user, pseudo_user, password_user) {
+    id_user = ''
+    name_user = ''
+    firstname_user = ''
+    email_user = ''
+    pseudo_user = ''
+    password_user = ''
+    constructor(
+        id_user,
+        name_user,
+        firstname_user,
+        email_user,
+        pseudo_user,
+        password_user) 
+        {
         this.id_user = id_user
         this.name_user = name_user
         this.firstname_user = firstname_user
@@ -31,10 +38,10 @@ class User {
     getEmailUser() {
         return this.email_user
     }
-    getPseudoUser(){
+    getPseudoUser() {
         return this.pseudo_user
     }
-    getPassord(){
+    getPassord() {
         return this.password_user
     }
     // procédure paramétrée
@@ -44,16 +51,16 @@ class User {
     setNameUser(name_user) {
         this.name_user = name_user
     }
-    setFirstNameUser(firstname_user){
+    setFirstNameUser(firstname_user) {
         this.firstname_user = firstname_user
     }
-    setEmailUser(email_user){
+    setEmailUser(email_user) {
         this.email_user = email_user
     }
-    setPseudoUser(pseudo_user){
+    setPseudoUser(pseudo_user) {
         this.pseudo_user = pseudo_user
     }
-    setPassword(password_user){
+    setPassword(password_user) {
         this.password_user = password_user
     }
 } /// class User
