@@ -1,5 +1,3 @@
-const { parseXML } = require("jquery");
-
 connexion = require("../../connexion")
 
 const getRounds = async (req, res) => {
@@ -8,12 +6,10 @@ const getRounds = async (req, res) => {
     "Access-Control-Allow-Methods",
     "GET"
   );
-  const param = req.params.id
   // Exécute une requête SQL de type SELECT
   connexion.query("SELECT * FROM round", (err, rows, fields) => {
     // SI OK
     if (!err) {
-      console.log(rows);
       res.status(200).json(rows);
     }
     // Si KO
@@ -35,7 +31,6 @@ const getRoundsNotClose = async (req, res) => {
   connexion.query("SELECT * FROM round_player ", (err, rows, fields) => {
     // SI OK
     if (!err) {
-      console.log(rows);
       res.status(200).json(rows);
     }
     // Si KO
@@ -81,7 +76,7 @@ const setRound = async (req, res) => {
     params.push(addon)
     params.push(rebuy)
     params.push(bounty)
-    console.log(params)
+   
     
     // Exécute une requête SQL de type SELECT
     connexion.query(
@@ -89,7 +84,6 @@ const setRound = async (req, res) => {
         (err, rows, fields) => {
       // SI OK
       if (!err) {
-        console.log(rows);
         res.status(200).json(rows.affected);
       }
       // Si KO
@@ -106,13 +100,11 @@ const setRound = async (req, res) => {
       "Access-Control-Allow-Methods",
       "DELETE"
     );
-    const param = [req.body.id_round, req.body.id_user]
-  
-    // Exécute une requête SQL de type SELECT
-    connexion.query("DELETE FROM round where id_round =? ", param, (err, rows, fields) => {
+    console.log(req.body);
+    // Exécute une requête SQL de type Delete
+    connexion.query("DELETE FROM round where id_round in (?) ", [req.body], (err, rows, fields) => {
       // SI OK
       if (!err) {
-        console.log(rows);
         res.status(200).json(rows);
         
       }

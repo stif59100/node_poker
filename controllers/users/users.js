@@ -34,7 +34,6 @@ const getUsers = async (req, res) => {
         users.push(user)
 
       });
-      console.log(rows);
       res.status(200).json(users);
     }
     // Si KO
@@ -61,7 +60,6 @@ const getUserById = async (req, res) => {
   connexion.query("SELECT * FROM utilisateur WHERE id_utilisateur = ?", param, (err, rows, fields) => {
     // SI OK
     if (!err) {
-      console.log(rows);
       res.status(200).json(rows);
     }
     // Si KO
@@ -82,13 +80,11 @@ const UpdateUserById = async (req, res) => {
     "GET"
   );
   //const param = 'id'
-  console.log(req.query)
   const param = [req.query.name_user, req.query.firstname_user, req.query.pseudo_user, req.query.email_user,  req.query.id_user]
   // Exécute une requête SQL de type SELECT
   connexion.query("CALL updateUser(?, ?, ?, ?, ?)", param, (err, rows, fields) => {
     // SI OK
     if (!err) {
-      console.log(rows);
       res.status(200).json(rows);
     }
     // Si KO

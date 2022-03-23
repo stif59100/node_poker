@@ -14,7 +14,6 @@ const getRights = (req, res) => {
   connexion.query("SELECT * FROM rights ", (err, rows, fields) => {
     // SI OK
     if (!err) {
-      console.log(rows);
       res.status(200).json(rows);
     }
     // Si KO
