@@ -93,6 +93,56 @@ const setRound = async (req, res) => {
       }
     });
   };
+  const updateRound = async (req, res) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader(
+      "Access-Control-Allow-Methods",
+      "POST"
+    );
+    var date = req.body.date
+    var hour = req.body.hour
+    var name = req.body.name
+    var points_attributs = req.body.points_attributs
+    var close= false
+    var open= req.body.open
+    var maxPlayer=  req.body.maxPlayer
+    var buyIn= req.body.buyIn
+    var rake= req.body.rake
+    var stack = req.body.stack
+    var addon =  req.body.addon
+    var rebuy = req.body.rebuy
+    var bounty = req.body.bounty
+    var params = []
+    params.push(date)
+    params.push(hour)
+    params.push(name)
+    params.push(points_attributs)
+    params.push(close)    
+    params.push(open)
+    params.push(maxPlayer)
+    params.push(buyIn)
+    params.push(rake)
+    params.push(stack)
+    params.push(addon)
+    params.push(rebuy)
+    params.push(bounty)
+   
+    
+    // Exécute une requête SQL de type SELECT
+    connexion.query(
+        "Update INTO `round`(`date_round`,`hour_round`, `name_round`, `points_attributs`, `close`, `open`, `max_player`,`buy_in`,`rake`,`stack`,`addon`,`rebuy`,`bounty`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)",params,
+        (err, rows, fields) => {
+      // SI OK
+      if (!err) {
+        res.status(200).json(rows.affected);
+      }
+      // Si KO
+      else {
+        console.log("\nErreur d'exécution de la requête !" + err);
+        res.status(200).json("\nErreur d'exécution de la requête !" + err);
+      }
+    });
+  };
 
   const deleteRound = async (req, res) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
@@ -120,5 +170,6 @@ const setRound = async (req, res) => {
 module.exports = {
   setRound,
   getRounds,
-  deleteRound
+  deleteRound,
+  updateRound
 };
