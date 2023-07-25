@@ -9,6 +9,7 @@ const controllerRegister = require("./controllers/registers/register");
 const controllerAuthentication = require('./controllers/authentications/authentification')
 const controllerRightsUsers = require('./controllers/rights_users/rights_users')
 const controllerRounds = require('./controllers/rounds/rounds')
+const controllerChampionShip = require('./controllers/championship/championship')
 
 const routes = (app) => {
 
@@ -17,7 +18,7 @@ const routes = (app) => {
     router.get("/user/:id", controllerUsers.getUserById);
     router.get("/UpdateUser",controllerUsers.UpdateUserById);
 
-    router.get("/roundByRoundId/:id_round", controllerRoundPlayer.getRoundByRoundId);
+    router.get("/userByRoundId/:id_round", controllerRoundPlayer.getRoundByRoundId);
     router.get("/roundByUserId/:id_user", controllerRoundPlayer.getRoundByUserId);
     
 
@@ -34,6 +35,12 @@ const routes = (app) => {
     router.delete("/round/deleteRound", controllerRounds.deleteRound);
     router.post("/roundplayer/register", controllerRoundPlayer.registerRound);
     router.delete("/roundplayer/unRegister", controllerRoundPlayer.unRegisterRound);
+
+    router.post("/championship/add", controllerChampionShip.setChampiongShip);
+    router.post("/championship/update", controllerChampionShip.updatChampiongShip);
+    router.get("/championships", controllerChampionShip.getChampiongShips);
+    // router.post("/championship/round/add", controllerChampionShip.registerRound);
+    // router.post("/championship/round/delete", controllerChampionShip.registerRound);
     app.use(router);
 };
 

@@ -19,7 +19,7 @@ const getUsers = async (req, res) => {
   );
 
   // Exécute une requête SQL de type SELECT
-  connexion.query("SELECT * FROM utilisateur ", (err, rows, fields) => {
+  connexion.query("SELECT * FROM user ", (err, rows, fields) => {
     // SI OK
     if (!err) {
       let users = []
@@ -44,8 +44,6 @@ const getUsers = async (req, res) => {
   });
 };
 
-
-
 // recherche par id
 // http://localhost:8080/user/:id
 const getUserById = async (req, res) => {
@@ -57,7 +55,7 @@ const getUserById = async (req, res) => {
   //const param = 'id'
   const param = req.params.id
   // Exécute une requête SQL de type SELECT
-  connexion.query("SELECT * FROM utilisateur WHERE id_utilisateur = ?", param, (err, rows, fields) => {
+  connexion.query("SELECT * FROM user WHERE id_user = ?", param, (err, rows, fields) => {
     // SI OK
     if (!err) {
       res.status(200).json(rows);

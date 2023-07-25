@@ -10,6 +10,7 @@ const connexion = mysql.createConnection({
   user: "root",
   password: "",
   database: "poker",
+  multipleStatements: true
 });
 connexion.connect();
 

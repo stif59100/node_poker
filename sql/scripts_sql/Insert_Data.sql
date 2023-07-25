@@ -30,8 +30,15 @@ INSERT INTO `rights` (`name_right`) VALUES
 ('open_round'),
 ('close_round'),
 ('manage_round'),
-('launch_round');
-INSERT INTO `round_player`(`id_round`, `id_player`, `points`) 
+('launch_round'),
+("add_championship"),
+("update_championship"),
+("delete_championship"),
+("manage_rigths"),
+("manage_application");
+
+
+INSERT INTO `round_player`(`id_round`, `id_player`, `points`);
 VALUES 
 (
     (select id_round FROM round where name_round = 'test'),
@@ -41,21 +48,35 @@ VALUES
  -- right_users
  INSERT INTO `rights_users`( `id_right`, `id_user`) VALUES 
 ((SELECT id_right FROM rights WHERE name_right = 'add_round'),
-(SELECT id_user FROM user WHERE pseudo_user = 'sandy'));
+(SELECT id_user FROM user WHERE pseudo_user = 'biloute'));
+INSERT INTO `rights_users`( `id_right`, `id_user`) VALUES 
+((SELECT id_right FROM rights WHERE name_right = 'delete_round'),
+(SELECT id_user FROM user WHERE pseudo_user = 'biloute'));
 INSERT INTO `rights_users`( `id_right`, `id_user`) VALUES 
 ((SELECT id_right FROM rights WHERE name_right = 'update_round'),
-(SELECT id_user FROM user WHERE pseudo_user = 'sandy'));
+(SELECT id_user FROM user WHERE pseudo_user = 'biloute'));
 INSERT INTO `rights_users`( `id_right`, `id_user`) VALUES 
 ((SELECT id_right FROM rights WHERE name_right = 'register_round'),
-(SELECT id_user FROM user WHERE pseudo_user = 'sandy'));
+(SELECT id_user FROM user WHERE pseudo_user = 'biloute'));
 INSERT INTO `rights_users`( `id_right`, `id_user`) VALUES 
 ((SELECT id_right FROM rights WHERE name_right = 'open_round'),
-(SELECT id_user FROM user WHERE pseudo_user = 'sandy'));
+(SELECT id_user FROM user WHERE pseudo_user = 'biloute'));
 INSERT INTO `rights_users`( `id_right`, `id_user`) VALUES 
 ((SELECT id_right FROM rights WHERE name_right = 'close_round'),
-(SELECT id_user FROM user WHERE pseudo_user = 'sandy'));
-
-[22:26] sandy delhoute
-INSERT INTO `rights`(`name_right`) VALUES ('manage_round');
-INSERT INTO `rights`(`name_right`) VALUES ('launch_round');
+(SELECT id_user FROM user WHERE pseudo_user = 'biloute'));
+INSERT INTO `rights_users`( `id_right`, `id_user`) VALUES 
+((SELECT id_right FROM rights WHERE name_right = 'manage_round'),
+(SELECT id_user FROM user WHERE pseudo_user = 'biloute'));
+INSERT INTO `rights_users`( `id_right`, `id_user`) VALUES 
+((SELECT id_right FROM rights WHERE name_right = 'add_championship'),
+(SELECT id_user FROM user WHERE pseudo_user = 'biloute'));
+INSERT INTO `rights_users`( `id_right`, `id_user`) VALUES 
+((SELECT id_right FROM rights WHERE name_right = 'update_championship'),
+(SELECT id_user FROM user WHERE pseudo_user = 'biloute'));
+INSERT INTO `rights_users`( `id_right`, `id_user`) VALUES 
+((SELECT id_right FROM rights WHERE name_right = 'delete_championship'),
+(SELECT id_user FROM user WHERE pseudo_user = 'biloute'));
+INSERT INTO `rights_users`( `id_right`, `id_user`) VALUES 
+((SELECT id_right FROM rights WHERE name_right = 'manage_application'),
+(SELECT id_user FROM user WHERE pseudo_user = 'biloute'));
 

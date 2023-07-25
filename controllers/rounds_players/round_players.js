@@ -8,7 +8,7 @@ const getRoundByRoundId = async (req, res) => {
   );
   const param = req.params.id_round
   // Exécute une requête SQL de type SELECT
-  connexion.query("SELECT user.name_user,user.firstname_user,user.pseudo_user, round_player.id_user,round.name_round,round.date_round,round.hour_round,round_player.id_round FROM (poker.round_player round_player INNER JOIN poker.round round ON (round_player.id_round = round.id_round)) INNER JOIN poker.user user ON (round_player.id_user = user.id_user) where round_player.id_round = ?", param,(err, rows, fields) => {
+  connexion.query("SELECT user.name_user,user.firstname_user,user.pseudo_user, round_player.id_user,round.name_round,round.date_round,round.hour_round,round_player.id_round,round_player.present FROM (poker.round_player round_player INNER JOIN poker.round round ON (round_player.id_round = round.id_round)) INNER JOIN poker.user user ON (round_player.id_user = user.id_user) where round_player.id_round = ?", param,(err, rows, fields) => {
     // SI OK
     if (!err) {
       console.log(rows);
