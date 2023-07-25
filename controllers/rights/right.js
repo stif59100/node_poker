@@ -37,7 +37,6 @@ const getRightsByName = (req, res) => {
   connexion.query("SELECT * FROM rights WHERE name_rights = ?", param, (err, rows, fields) => {
     // SI OK
     if (!err) {
-      console.log(rows);
       res.status(200).json(rows);
     }
     // Si KO

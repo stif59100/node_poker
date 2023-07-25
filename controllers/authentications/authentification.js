@@ -14,15 +14,13 @@ const getAuthentication = async (req, res) => {
     params.push(email)
     params.push(login)
     params.push(password)
-    console.log(params)
+  
     // Exécute une requête SQL de type SELECT
     connexion.query("SELECT * FROM user where (email_user = ? or pseudo_user = ?) and password_user = ? LIMIT 1 ", params, (err, rows, fields) => {
         
         console.log('authent')
         // SI OK
         if (!err && rows.length !== 0) {
-            console.log(rows[0])
-            
             let user = new User(
                 rows[0].id_user,
                 rows[0].name_user,

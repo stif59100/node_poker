@@ -44,8 +44,6 @@ const getUsers = async (req, res) => {
   });
 };
 
-
-
 // recherche par id
 // http://localhost:8080/user/:id
 const getUserById = async (req, res) => {
