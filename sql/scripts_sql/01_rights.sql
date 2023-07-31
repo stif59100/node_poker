@@ -7,9 +7,11 @@
 -- Version du serveur : 10.4.21-MariaDB
 -- Version de PHP : 8.0.11
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE
+= "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
-SET time_zone = "+00:00";
+SET time_zone
+= "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -27,9 +29,12 @@ SET time_zone = "+00:00";
 -- Structure de la table `right`
 --
 
-CREATE TABLE `rights` (
-  `id_right` int(11) UNSIGNED NOT NULL  PRIMARY KEY AUTO_INCREMENT,
-  `name_right` varchar(100) NOT NULL
+CREATE TABLE `rights`
+(
+  `id_right` int
+(11) UNSIGNED NOT NULL  PRIMARY KEY AUTO_INCREMENT,
+  `name_right` varchar
+(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
