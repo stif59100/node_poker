@@ -10,8 +10,7 @@ INSERT INTO `user`
  'sandy',
  'biloute',
  'sdelhoute@gmail.com',
- sha1
-('biloute'));
+ SHA2('biloute',256));
 
 -- round
 INSERT INTO `round`( 
@@ -45,7 +44,7 @@ VALUES
 
 INSERT INTO `round_player`
 (`id_round`,
-`id_player`,
+`id_user`,
 `points`)
 VALUES
 (

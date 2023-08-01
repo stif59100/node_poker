@@ -10,6 +10,7 @@ class User {
     email_user = ''
     pseudo_user = ''
     password_user = ''
+    rights = []
     constructor(
         id_user,
         name_user,
@@ -44,6 +45,9 @@ class User {
     getPassord() {
         return this.password_user
     }
+    getRights() {
+       return  this.rights 
+    }
     // procédure paramétrée
     setIdUser(id_user) {
         this.id_user = id_user
@@ -62,6 +66,9 @@ class User {
     }
     setPassword(password_user) {
         this.password_user = password_user
+    }
+    setRights(rights) {
+        this.rights = rights
     }
 } /// class User
 

@@ -4,11 +4,8 @@ ENV MYSQL_ROOT_PASSWORD=MYSQL_ROOT_PASSWORD
 ENV MYSQL_DATABASE=poker
 ENV MYSQL_USER=poker
 ENV MYSQL_PASSWORD=poker
-
-# ADD ./sql/scripts_sql/*.sql  /etc/mysql/
-# ADD ./sql/init_db.sh   /etc/mysql/
+ENV MYSQL_PORT=3306
 COPY ./sql/scripts_sql/*.sql /docker-entrypoint-initdb.d
 
-# RUN  /etc/mysql/init_db.sh $MYSQL_ROOT_PASSWORD $MYSQL_DATABASE
 
-EXPOSE 3306
+EXPOSE $MYSQL_PORT

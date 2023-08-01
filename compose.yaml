@@ -1,0 +1,32 @@
+version: "3.8"
+services:
+  db:
+    image: poker_database
+    build:
+      context: ./database
+      dockerfile: dockerfile
+    restart: always
+    ports:
+      - 3306:3306
+    expose:
+      - 3306
+  backend:
+    depends_on:
+      - db
+    image: poker_backend_app
+    build:
+      context: ./backend
+      dockerfile: dockerfile
+      args:
+        - NODE_ENV=development
+      target: development
+    environment:
+      - DATABASE_DB=poker
+      - DATABASE_USER=poker
+      - DATABASE_PASSWORD=poker
+      - DATABASE_PORT=3306
+      - NODE_ENV=development
+    ports:
+      - 4500:4500
+      - 9229:9229
+      - 9230:9230

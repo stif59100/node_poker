@@ -9,9 +9,14 @@
     "express": "^4.17.1",
     "fs": "^0.0.1-security",
     "hash": "^0.2.1",
-    "mysql": "^2.18.1",
     "mysql2": "^2.3.3",
-    "nodemon": "^2.0.15",
+    "nodemon": "^3.0.1",
     "use-effect": "^0.0.1"
+  },
+  "scripts": {
+    "start": "cross-env NODE_ENV=developpment DATABASE_PORT=3306 DATABASE_DB=poker DATABASE_USER=poker DATABASE_PASSWORD=poker node src/index.js "
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3"
   }
 }
